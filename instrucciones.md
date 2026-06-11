@@ -22,7 +22,7 @@ Soy un estudiante de Análisis de Sistemas y quiero construir esta app para apre
 
 ---
 
-## FASE 2: Gestión de Archivos (File Picker)
+## 📂 FASE 2: Gestión de Archivos (File Picker)
 
 **Objetivo:** Permitir que la app acceda a los archivos del celular.
 
@@ -33,7 +33,7 @@ Soy un estudiante de Análisis de Sistemas y quiero construir esta app para apre
 
 ---
 
-## FASE 3: Extracción y Parsing (Lógica Central)
+## 🧠 FASE 3: Extracción y Parsing (Lógica Central)
 
 **Objetivo:** Convertir el dibujo del PDF en datos útiles.
 
@@ -45,7 +45,7 @@ Soy un estudiante de Análisis de Sistemas y quiero construir esta app para apre
 
 ---
 
-## FASE 4: Persistencia con SQLite
+## 💾 FASE 4: Persistencia con SQLite
 
 **Objetivo:** Guardar los gastos para que persistan al cerrar la app.
 
@@ -56,7 +56,7 @@ Soy un estudiante de Análisis de Sistemas y quiero construir esta app para apre
 
 ---
 
-## FASE 5: UI Avanzada y Listado
+## 📊 FASE 5: UI Avanzada y Listado
 
 **Objetivo:** Mostrar los resultados de forma profesional.
 
@@ -67,7 +67,7 @@ Soy un estudiante de Análisis de Sistemas y quiero construir esta app para apre
 
 ---
 
-## REGLAS DE ORO
+## 🛑 REGLAS DE ORO
 
 1. **Modularidad:** Separa la lógica (utils) de la vista (components).
 2. **Explicación:** Después de cada bloque de código, dime qué hace cada función clave.
