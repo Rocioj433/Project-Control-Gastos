@@ -5,6 +5,7 @@ backend/control_gastos.db
 
 # PDFs de prueba
 ResumenTarjeta.pdf
+Resumen.pdf
 
 # Python
 __pycache__/
