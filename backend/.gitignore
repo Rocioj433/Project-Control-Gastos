@@ -1,5 +1,7 @@
 venv/
 __pycache__/
 *.pyc
+*.pyo
 .env
 control_gastos.db
+service_account.json

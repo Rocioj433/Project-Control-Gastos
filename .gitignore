@@ -1,0 +1,21 @@
+# Archivos sensibles
+backend/service_account.json
+backend/.env
+backend/control_gastos.db
+
+# PDFs de prueba
+ResumenTarjeta.pdf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node
+node_modules/
+.expo/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
