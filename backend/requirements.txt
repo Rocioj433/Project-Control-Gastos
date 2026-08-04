@@ -1,0 +1,14 @@
+fastapi==0.141.1
+uvicorn==0.52.1
+pdfplumber==0.11.10
+pandas==2.3.1
+openpyxl==3.1.5
+pydantic==2.13.4
+sqlalchemy==2.0.41
+psycopg2-binary==2.9.10
+python-multipart==0.0.32
+python-dotenv==1.2.2
+openai==2.3.0
+google-api-python-client==2.198.0
+google-auth==2.56.2
+google-auth-oauthlib==1.4.0
