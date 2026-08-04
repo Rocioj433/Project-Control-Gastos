@@ -1,56 +1,40 @@
-# PROYECTO: SmartExpense v2 - Extractor de Gastos (React Native + API Node.js)
+# Proyecto: Control de Gastos Personal
 
-**Stack Tecnológico:** - **App Móvil:** React Native (Expo) + TypeScript + SQLite
-- **Backend (API):** Node.js + Express + Multer (Carga de archivos) + pdf-parse (Extracción)
+## Descripción del Proyecto
+Aplicación móvil diseñada para llevar un control detallado de los gastos diarios y mensuales. El objetivo principal de la aplicación es facilitar la carga de gastos automatizando la lectura y categorización a partir de resúmenes de tarjetas de crédito (en formato PDF o imagen). Además, los gastos extraídos y categorizados se sincronizarán/exportarán a Google Sheets o archivos Excel.
 
----
+## Funcionalidades Principales
+1. **Carga de Resúmenes**: Permitir al usuario subir un archivo (PDF o imagen) del resumen de su tarjeta.
+2. **Procesamiento y Extracción**: Leer el documento subido para identificar los gastos individuales (fecha, descripción del comercio y monto).
+3. **Autocategorización Inteligente**: Asignar automáticamente una categoría a cada gasto (ej. Supermercado, Transporte, Entretenimiento) basándose en la descripción del comercio, emulando la funcionalidad de aplicaciones como Mercado Pago.
+4. **Visualización**: Mostrar en la app móvil un desglose visual de los gastos por categoría (dashboard), totales mensuales y reportes.
+5. **Exportación y Sincronización**: Generar un archivo Excel con los datos y/o sincronizar automáticamente los gastos procesados con una hoja de cálculo en Google Sheets.
 
-## 📂 FASE 1: Entorno y Estructura de Navegación (Mobile)
-**Objetivo:** Configurar el "esqueleto" funcional de la app móvil.
-- Inicializar proyecto con `npx create-expo-app` usando la plantilla de **TypeScript**.
-- Instalar e implementar `react-navigation` (Native Stack).
-- Crear las pantallas: `HomeScreen` (Dashboard vacío) y `ScannerScreen` (Carga de PDF).
-- **Conceptos:** Estructura de carpetas (`src/`), Stack Navigator y Tipado básico.
+## Stack Tecnológico Elegido
 
-## 📂 FASE 2: Gestión de Archivos y Selector (Mobile)
-**Objetivo:** Permitir que la app acceda y seleccione los archivos del celular.
-- Instalar e implementar `expo-document-picker`.
-- Crear un botón que abra el selector filtrando solo por `.pdf`.
-- Guardar el URI del archivo seleccionado en un estado local (`useState`).
-- **Conceptos:** Hook `useState`, manejo de promesas y permisos del sistema de archivos.
+### 📱 Frontend (Aplicación Móvil)
+- **Tecnología**: React Native usando Expo (JavaScript/TypeScript).
+- **Justificación**: Permite desarrollar aplicaciones nativas para iOS y Android manteniendo un único código fuente. Es altamente demandado en la industria y Expo simplifica enormemente el proceso de desarrollo y pruebas en dispositivos físicos.
 
-## 🧠 FASE 3: Servidor de Extracción - API REST (Backend)
-**Objetivo:** Crear el entorno intermedio que procesará el PDF real.
-- Configurar un proyecto básico de Node.js con `express`.
-- Implementar `multer` para recibir el archivo PDF que enviará la app móvil.
-- Usar `pdf-parse` para extraer el texto plano (`Raw Text`) del archivo recibido.
-- **Conceptos:** Protocolo HTTP, endpoints (POST), Middlewares y flujo de archivos en el backend.
+### ⚙️ Backend (Servidor y Lógica Core)
+- **Tecnología**: Python con el framework FastAPI.
+- **Justificación**: Python cuenta con el mejor ecosistema para procesamiento de documentos (PDFs/OCR) y algoritmos de categorización. FastAPI es veloz, moderno y crea automáticamente la documentación de la API.
 
-## 🔍 FASE 4: Lógica de Procesamiento y RegEx (Backend)
-**Objetivo:** Filtrar el texto del banco y devolver datos estructurados (JSON).
-- Crear expresiones regulares (`RegEx`) para extraer: **Fecha**, **Descripción** y **Monto**.
-- Limpiar el texto (ignorar cabeceras y totales generales).
-- Devolver una respuesta JSON limpia a la aplicación móvil con un array de gastos.
-- **Conceptos:** Expresiones Regulares aplicadas a strings complejos, limpieza y mapeo de datos.
+### 🗄️ Base de Datos
+- **Tecnología**: PostgreSQL.
+- **ORM**: SQLAlchemy (librería para interactuar con la base de datos desde Python sin escribir SQL directo).
+- **Justificación**: Estándar de la industria para datos relacionales. Es robusta y perfecta para datos financieros (donde las relaciones entre usuarios, gastos y categorías son claras).
 
-## 💾 FASE 5: Integración y Persistencia con SQLite (Mobile)
-**Objetivo:** Conectar la app al backend y guardar los gastos localmente.
-- Configurar `fetch` en la app móvil (Fase 2) para enviar el PDF a la API de Node.js.
-- Recibir el JSON con los gastos procesados.
-- Configurar `expo-sqlite` y definir la tabla `gastos` (id, fecha, detalle, monto, categoria).
-- Hacer el `INSERT` masivo de los datos devueltos por el backend.
-- **Conceptos:** Conexión de red local, base de datos relacional móvil y ciclo de vida (`useEffect`).
+### 🛠️ Herramientas y Librerías Clave
+- **Extracción de Texto (PDF)**: `pdfplumber` o `PyPDF2`.
+- **Manipulación de Excel**: `pandas` u `openpyxl`.
+- **Integración con Google**: API oficial de Google Sheets.
+- **Categorización**: Reglas de texto en Python o integración con IA (ej. OpenAI API).
 
-## 📊 FASE 6: UI Avanzada y Listado (Mobile)
-**Objetivo:** Mostrar los resultados de forma limpia y profesional.
-- Implementar `FlatList` para renderizar los gastos desde SQLite.
-- Crear un componente de "Card" estilizado con un diseño limpio.
-- Añadir un contador acumulador que sume el total de gastos detectados.
-- **Conceptos:** Optimización de renderizado de listas y diseño con Flexbox.
-
----
-
-## 🛑 REGLAS DE ORO
-1. **Fase por Fase:** No avanzamos de fase hasta que la anterior esté testeada, funcionando y comprendida.
-2. **Explicación de Hooks y Conceptos:** Al final de cada bloque de código clave, desglosaremos su funcionamiento.
-3. **Modularidad:** Separar lógica de utilidades de los componentes visuales.
+## Metodología de Trabajo y Reglas de Colaboración
+- **Desarrollo Paso a Paso**: Construiremos el proyecto de forma incremental. Cada paso será explicado claramente (el por qué y para qué) antes de escribir el código.
+- **Gestión y Explicación de Errores**: Si ocurre un error durante el desarrollo, nos detendremos para analizarlo. Recibirás una explicación detallada sobre:
+  1. Dónde está ubicado exactamente el error (archivo y línea).
+  2. Qué está causando el problema.
+  3. Cómo funciona el mecanismo detrás del error para entenderlo a fondo.
+  4. La solución aplicada.
