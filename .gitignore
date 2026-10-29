@@ -1,22 +1,40 @@
 # Archivos sensibles
+service_account.json
 backend/service_account.json
-backend/.env
+.env
+.env.*
+!.env.example
+mobile/.env
+
+# Base de datos local
+control_gastos.db
 backend/control_gastos.db
+*.db.bak
 
 # PDFs de prueba
 ResumenTarjeta.pdf
 Resumen.pdf
 
 # Python
+venv/
+backend/venv/
 __pycache__/
 *.pyc
 *.pyo
+.pytest_cache/
+.coverage
+htmlcov/
 
 # Node
 node_modules/
 .expo/
 dist/
+web-build/
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Editor
+.vscode/
+.idea/
